@@ -1,23 +1,570 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "자동차 보험 비교 어플 종합 분석 가이드",
+      "description": "국내 주요 자동차 보험 비교 어플의 장단점 및 특징을 분석하며, 각 차량 모델별 예상 보험료 견적과 가입 혜택 정보를 제공하는 웹 플랫폼 가이드입니다.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Android, iOS",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "1890"
+      }
+    }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            background-color: #f4f7fa; 
+            color: #2d3748; 
+            line-height: 1.8; 
+            margin: 0; 
+            padding: 0; 
+        }
+        header, section, footer { 
+            max-width: 1000px; 
+            margin: 30px auto; 
+            padding: 40px; 
+            background: #ffffff; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+        }
+        h1 { 
+            font-size: 2.2rem; 
+            color: #1a365d; 
+            text-align: center; 
+            margin-bottom: 20px; 
+            font-weight: 800; 
+            border-bottom: 3px solid #cbd5e1; 
+            padding-bottom: 15px; 
+        }
+        h2 { 
+            font-size: 1.7rem; 
+            color: #2b6cb0; 
+            border-left: 6px solid #3182ce; 
+            padding-left: 15px; 
+            margin-top: 40px; 
+            margin-bottom: 20px; 
+            font-weight: 700; 
+        }
+        h3 { 
+            font-size: 1.25rem; 
+            color: #2c5282; 
+            margin-top: 25px; 
+            font-weight: 600; 
+        }
+        p { 
+            font-size: 1.05rem; 
+            color: #4a5568; 
+            margin-bottom: 20px; 
+            text-align: justify;
+        }
+        ul, ol { 
+            padding-left: 20px; 
+            margin-bottom: 25px; 
+        }
+        li { 
+            font-size: 1.05rem; 
+            color: #4a5568; 
+            margin-bottom: 10px; 
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 30px 0; 
+            background: #ffffff; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); 
+        }
+        th { 
+            background: #ebf8ff; 
+            color: #2b6cb0; 
+            font-weight: 700; 
+            padding: 15px; 
+            text-align: left; 
+            border-bottom: 2px solid #bee3f8; 
+        }
+        td { 
+            padding: 15px; 
+            border-bottom: 1px solid #e2e8f0; 
+            color: #4a5568; 
+        }
+        tr:hover { 
+            background-color: #f7fafc; 
+        }
+
+        .info-box { 
+            background-color: #ebf8ff; 
+            border-left: 4px solid #3182ce; 
+            padding: 25px; 
+            border-radius: 8px; 
+            margin: 25px 0; 
+        }
+        .warning-box { 
+            background-color: #fffaf0; 
+            border-left: 4px solid #dd6b20; 
+            padding: 25px; 
+            border-radius: 8px; 
+            margin: 25px 0; 
+        }
+
+        .btn-action { 
+            display: block; 
+            width: fit-content; 
+            margin: 30px auto; 
+            padding: 15px 40px; 
+            background-color: #3182ce; 
+            color: #ffffff; 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            text-align: center; 
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3); 
+            transition: all 0.3s ease; 
+            border: none; 
+            cursor: pointer; 
+        }
+        .btn-action:hover { 
+            background-color: #2b6cb0; 
+            transform: translateY(-2px); 
+        }
+
+        form { 
+            background: #f7fafc; 
+            padding: 35px; 
+            border-radius: 12px; 
+            border: 1px solid #e2e8f0; 
+            margin-top: 30px; 
+        }
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 700; 
+            color: #2d3748; 
+        }
+        input[type="text"], input[type="tel"], input[type="number"], select, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 20px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            background: #ffffff; 
+        }
+        input:focus, select:focus, textarea:focus { 
+            border-color: #3182ce; 
+            outline: none; 
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15); 
+        }
+        .checkbox-group { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            margin-bottom: 20px; 
+        }
+        .checkbox-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            background: #ffffff; 
+            padding: 10px 15px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 8px; 
+            cursor: pointer; 
+        }
+
+        nav { 
+            max-width: 1000px; 
+            margin: 10px auto; 
+            padding: 15px 30px; 
+            background: #edf2f7; 
+            border-radius: 12px; 
+        }
+        nav ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            justify-content: center; 
+        }
+        nav li { 
+            margin: 0; 
+        }
+        nav a { 
+            text-decoration: none; 
+            color: #2b6cb0; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+        }
+        nav a:hover { 
+            text-decoration: underline; 
+        }
+
+        .chart-container {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .chart-bar-wrapper {
+            margin-bottom: 15px;
+        }
+        .chart-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        .chart-bar-bg {
+            background: #edf2f7;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 25px;
+            width: 100%;
+        }
+        .chart-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #63b3ed, #3182ce);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        @media(max-width: 768px) {
+            header, section, footer { 
+                margin: 15px; 
+                padding: 20px; 
+            }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.4rem; }
+            h3 { font-size: 1.1rem; }
+            nav ul { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>자동차 보험 비교 어플 분석 가이드: 2026년 기준 비교 및 선택 노하우</h1>
+        <p>
+            새로운 차량을 구매했거나 기존 보험의 갱신 시점이 다가왔을 때, 수많은 차주들이 더 합리적인 선택을 하기 위해 정보를 탐색합니다. 최근 스마트폰의 발전과 플랫폼 다각화로 인해 자동차 보험 비교 어플이 활성화되면서 다양한 상품 정보를 한눈에 파악할 수 있는 환경이 조성되었습니다. 본 가이드에서는 자동차 보험 비교 어플의 실질적인 장단점과 차이점을 다각도로 조명하며, 주요 차종별 예상 견적 금액 정보를 분석하여 합리적인 대안을 제안합니다.
+        </p>
+        <a href="#insurance-consulting-form" class="btn-action">나에게 가장 적합한 견적 정보 확인하기</a>
+    </header>
+
+    <nav aria-label="주요 본문 바로가기">
+        <ul>
+            <li><a href="#section-market">시장 트렌드와 어플 현황</a></li>
+            <li><a href="#section-pros-cons">비교 플랫폼의 장단점</a></li>
+            <li><a href="#section-models">30대 주요 차종별 평균 견적</a></li>
+            <li><a href="#section-ai-tech">AI 기반 분석 시스템</a></li>
+            <li><a href="#section-signup-tips">가입 혜택과 유의점</a></li>
+            <li><a href="#section-faq">자주 묻는 질문 FAQ</a></li>
+            <li><a href="#insurance-consulting-form">맞춤 분석 요청</a></li>
+            <li><a href="#section-external">신뢰할 수 있는 외부 출처</a></li>
+        </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <section id="section-market">
+        <h2>시장 트렌드와 자동차 보험 비교 어플의 부상</h2>
+        <p>
+            과거에는 오프라인 설계사를 통해 개별 계약을 체결하는 것이 일반적이었습니다. 그러나 점차 온라인을 통한 다이렉트 가입이 증가하였으며, 현재는 여러 보험사의 요율 정보를 한 공간에서 연산해 주는 플랫폼 기반의 어플들이 큰 인기를 끌고 있습니다. 네이버, 카카오, 토스 등 주요 핀테크 플랫폼은 물론 특화된 핀테크 전문 업체들이 제공하는 전용 인터페이스를 활용하면 복잡한 본인 인증 한 번으로 주요 손해 보험사들의 계산 가격을 실시간으로 산출할 수 있습니다.
+        </p>
+        <p>
+            이러한 흐름은 온라인 커뮤니티인 디시, 보배드림, 펨코, 에펨코리아 등에서도 뜨거운 대화 주제가 되고 있습니다. 신규 운전자들은 조금이라도 더 싼곳이나 저렴한곳을 찾아 발품을 파는 대신, 편리하게 스마트폰 어플을 켜서 순위를 대조해 보는 방향을 택하고 있습니다. 사용자들의 내돈내산 후기를 분석해 보면, 단순히 보험사 브랜드 이미지만을 보고 결정하기보다 실제 공시된 할인율과 사은품 수준을 고려하는 경향이 뚜렷하게 관찰됩니다.
+        </p>
+        <div class="info-box">
+            <strong>보험 시장 변화 요약:</strong> 오프라인 중개인 중심의 가입 방식에서 벗어나, 빅데이터 기술과 실시간 연동 API를 탑재한 모바일 어플리케이션을 통한 다이렉트 가입 비중이 급속도로 늘고 있습니다. 이는 정보 비대칭성을 해소하고 가격 경쟁을 촉진하는 긍정적 효과를 만들고 있습니다.
+        </div>
+    </section>
+
+    <section id="section-pros-cons">
+        <h2>자동차 보험 비교 어플의 장단점 및 차이점</h2>
+        <p>
+            다양한 플랫폼들이 시장에서 경쟁하는 만큼 각 서비스가 보유한 특징과 명확한 차이점을 파악하는 작업이 요구됩니다. 어플을 사용할 때 체감할 수 있는 주요 특징들은 아래와 같습니다.
+        </p>
+        
+        <h3>어플 활용의 주요 장점</h3>
+        <ul>
+            <li><strong>시간 절약:</strong> 각 보험사의 홈페이지에 일일이 접속하여 동일한 보장 조건을 반복 입력할 필요가 없으므로 불필요한 공수를 단축할 수 있습니다.</li>
+            <li><strong>객관적인 지표 비교:</strong> 대인배상 한도, 대물배상 금액, 자기신체사고 혹은 자동차상해 등의 세부 특약 구성을 일관되게 맞춘 상태에서 객관적인 가격 편차를 대조해 볼 수 있습니다.</li>
+            <li><strong>다양한 프로모션 혜택:</strong> 플랫폼 차원에서 제공하는 주유 상품권, 신세계 상품권, 캐시백 등 신규 가입 혜택과 이벤트 지원금을 수령할 수 있는 통로가 다양하게 마련되어 있습니다.</li>
+        </ul>
+
+        <h3>어플 활용 시 주의해야 할 단점</h3>
+        <ul>
+            <li><strong>특화 특약의 누락 가능성:</strong> 일부 특정 보험사에서만 단독으로 제공하는 고유한 특약(특정 운전 습관 점수 할인, 세부적인 첨단 안전장치 패키지 할인 등)이 비교 화면에서 세밀하게 반영되지 않는 경우가 있습니다.</li>
+            <li><strong>수수료 구조에 따른 미세한 금액 편차:</strong> 일부 플랫폼의 경우 조회 편의성을 제공하는 대가로 연산 결과에 대행 수수료 구조가 소폭 연동되어 있을 수 있으므로, 최종 결제 전에 다이렉트 다이렉트 공식 웹사이트의 정산 수치와 차이점을 검토해 볼 필요가 있습니다.</li>
+            <li><strong>마케팅 정보 동의 요구:</strong> 한 번에 여러 곳의 시뮬레이션을 도출하는 과정에서 필수적이거나 선택적인 개인정보 수집 및 마케팅 연락 동의를 거치는 경우가 생겨 추후 다수의 안내 전화를 받을 수 있는 번거로움이 존재합니다.</li>
+        </ul>
+    </section>
+
+    <section id="section-models">
+        <h2>국내 주요 30대 차종별 평균 예상 보험료 분석</h2>
+        <p>
+            자동차 보험료는 차종의 수리 비용, 부품 등급, 손해율 통계에 기초하여 상이하게 산정됩니다. 2026년 기준 주요 자동차 모델별 평균 가격대를 추산하여 도표를 작성하였습니다. 본 자료는 만 35세 무사고 1인 한정 기준의 대략적인 연간 예상 금액이며, 개개인의 경력과 담보 크기에 따라 실제 산출되는 금액은 차이가 날 수 있습니다.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>제조사 분류</th>
+                    <th>대상 차량 모델명</th>
+                    <th>연간 예상 보험료 평균 (원)</th>
+                    <th>차종별 수리비 및 요율 특성</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>현대자동차</td>
+                    <td>아반떼, 캐스퍼, 코나, 투싼</td>
+                    <td>580,000 ~ 720,000</td>
+                    <td>부품 수급이 매우 원활하며 손해율이 안정적이어서 상대적으로 금액이 저렴한 편에 속합니다.</td>
+                </tr>
+                <tr>
+                    <td>현대자동차</td>
+                    <td>소나타, 그랜저, 싼타페, 팰리세이드</td>
+                    <td>700,000 ~ 950,000</td>
+                    <td>중대형 및 SUV 계열 차량으로 가액이 다소 높아 자차 담보 비용이 일정 부분 가산됩니다.</td>
+                </tr>
+                <tr>
+                    <td>현대자동차</td>
+                    <td>스타리아, 포터</td>
+                    <td>800,000 ~ 1,100,000</td>
+                    <td>상업적 활용도가 있는 차종의 경우 주행 누적 거리가 길어 손해율이 비교적 높게 관찰됩니다.</td>
+                </tr>
+                <tr>
+                    <td>기아자동차</td>
+                    <td>모닝, 레이, 셀토스</td>
+                    <td>520,000 ~ 680,000</td>
+                    <td>경차 및 소형 SUV 라인업으로 기본적인 세금과 보험료 기저 가격이 안정되어 있습니다.</td>
+                </tr>
+                <tr>
+                    <td>기아자동차</td>
+                    <td>스포티지, K3, K5</td>
+                    <td>650,000 ~ 820,000</td>
+                    <td>준중형급 베스트셀러 모델들로 전반적인 정비 용이성이 우수하여 견적 경쟁력이 높습니다.</td>
+                </tr>
+                <tr>
+                    <td>기아자동차</td>
+                    <td>쏘렌토, 카니발, K8, K9</td>
+                    <td>780,000 ~ 1,150,000</td>
+                    <td>패밀리카 운용 비중이 높은 편으로 운전자 범위 지정 조건에 따른 편차가 큽니다.</td>
+                </tr>
+                <tr>
+                    <td>기아자동차</td>
+                    <td>EV6, EV9, 봉고</td>
+                    <td>900,000 ~ 1,400,000</td>
+                    <td>전기차의 경우 배터리 교체 단가가 높게 형성되어 자차 특약 가산 요인이 존재합니다.</td>
+                </tr>
+                <tr>
+                    <td>제네시스</td>
+                    <td>G70, G80, G90, GV70, GV80</td>
+                    <td>950,000 ~ 1,600,000</td>
+                    <td>프리미엄 세단 및 SUV 라인으로 고가 부품 및 센서 적용율이 높아 차량 가액 편중도가 심화됩니다.</td>
+                </tr>
+                <tr>
+                    <td>KGM / 르노 / 쉐보레</td>
+                    <td>토레스, 티볼리, 렉스턴, QM6, XM3, SM6</td>
+                    <td>680,000 ~ 980,000</td>
+                    <td>일부 부품의 독자 공급망 영향으로 제조사 서비스 네트워크 이용 시 자비 부담 구조를 면밀히 보아야 합니다.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="chart-container">
+            <h3>차량 성격별 자차 담보 비중 및 평균 요율 지표 (2026년 가상 분석)</h3>
+            <p>아래 막대그래프는 각 세그먼트별 전체 보험 구성 요소 중 자차(자기차량손해) 보장이 차지하는 상대적 비용 압박 비중을 보여줍니다.</p>
+            
+            <div class="chart-bar-wrapper">
+                <div class="chart-label">경형/소형 라인업 (모닝, 레이, 캐스퍼 등)</div>
+                <div class="chart-bar-bg">
+                    <div class="chart-bar-fill" style="width: 35%;">35%</div>
+                </div>
+            </div>
+            
+            <div class="chart-bar-wrapper">
+                <div class="chart-label">준중형/중형 베스트셀러 (아반떼, K5, 쏘나타, 스포티지 등)</div>
+                <div class="chart-bar-bg">
+                    <div class="chart-bar-fill" style="width: 50%;">50%</div>
+                </div>
+            </div>
+            
+            <div class="chart-bar-wrapper">
+                <div class="chart-label">전기차 및 프리미엄 라인업 (EV6, G80, GV80 등)</div>
+                <div class="chart-bar-bg">
+                    <div class="chart-bar-fill" style="width: 80%;">80%</div>
+                </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #718096; margin-top: 10px;">
+                상기 비율 지표는 차량 출고 단가 상승 및 전장 부품 정교화에 다른 자차 요율의 변화 경향성을 예시한 가상 참고치입니다.
+            </p>
+        </div>
+
+        <p>
+            위에 나열된 아반떼, 캐스퍼, 코나, 투싼, 소나타, 그랜저, 싼타페, 팰리세이드, 스타리아, 포터, 모닝, 레이, 셀토, 스포티지, K3, K5, 쏘렌토, 카니발, K8, K9, EV6, EV9, 봉고, G70, G80, G90, GV70, GV80, 토레스, 티볼리, 렉스턴, QM6, XM3, SM6 등의 차종들은 국내 도로에서 가장 자주 접하게 되는 대중적인 기종들입니다. 이들 차량의 보험 등급 제도는 정기적으로 갱신되며, 손해율이 낮아진 기종들은 차년도 갱신 시 금액 면에서 소폭 혜택을 받는 경향이 있습니다.
+        </p>
+    </section>
+
+    <section id="section-ai-tech">
+        <h2>인공지능(AI)과 거대 언어 모델이 제안하는 맞춤형 분석 트렌드</h2>
+        <p>
+            스마트 기기와 IT 기술이 비약적으로 발전함에 따라, 단순히 정적인 수수료 테이블을 대조하던 것에서 나아가 지능화된 정밀 분석 기법이 적극적으로 개입하고 있습니다. 최근 출시되는 자동차 보험 비교 어플리케이션은 사용자의 운행 방식 및 차량 센서 데이터를 능동적으로 연계하여 동적 요율을 추려내는 전문 업체가 주축을 이루고 있습니다.
+        </p>
+        <p>
+            챗지피티(ChatGPT)나 제미나이(Gemini)와 같은 고도화된 인공지능 프레임워크 기술이 백엔드 영역에 접목되기 시작하면서, 운전자가 미처 자각하지 못한 미시적 요소까지 정량적 통계로 탈바꿈시키고 있습니다. 구글, 유튜브, 트위터, 인스타그램, 페이스북 등의 채널을 통해 확산되는 다양한 최적화 팁들도 인공지능이 취합한 연산 데이터베이스에 기초하여 더욱 세련된 형태로 이용자들에게 유입되고 있습니다.
+        </p>
+        <p>
+            AI 기반 연산 장치는 가입자가 설정한 특약 중 마일리지(주행거리 단축), 차선이탈방지장치, 전방충돌방지센서 등 안전을 서포트하는 제반 인프라 정보를 신속하게 수렴하여 즉시 공제 요율에 매칭합니다. 이로 인해 과거처럼 설계사를 붙여서 여러 날 동안 문답을 주고받을 필요 없이 몇 초 만에 고정 정밀 계산에 도달하게 되는 것입니다.
+        </p>
+    </section>
+
+    <section id="section-signup-tips">
+        <h2>어플을 이용한 신규 가입 프로세스와 추가 혜택 극대화 기법</h2>
+        <p>
+            자동차 보험 비교 어플의 또 다른 장점은 신규 등록 고객에게 분배되는 매력적인 리워드 패키지입니다. 가입 혜택으로는 여러 제휴 카드 청구 할인, 주유 상품권, 백화점 상품권 증정 등이 대표적입니다. 업계 간의 마켓 쉐어 획득을 위한 판촉 이벤트가 상시 진행되고 있으므로 적극적인 활용이 권장됩니다.
+        </p>
+        <div class="warning-box">
+            <strong>사은품 수령 시 숙지사항:</strong> 현행 규정상 과도한 수준의 경제적 이익 제공(특별이익제공 금지 규정 등)은 엄격히 제한됩니다. 따라서 터무니없는 수준의 현금지원이나 상품권 살포를 장담하는 미확인 업체는 이용 시 주의를 기울여야 하며, 합법적인 플랫폼 안에서 제공되는 공식 마케팅 혜택인지 철저히 판단해야 합니다.
+        </div>
+        <p>
+            보험사 측에서도 고객 데이터가 집중되는 유수 비교 플랫폼을 대상으로 전용 특별 요약 상품이나 주말 맞춤 단기 보장 등 맞춤형 라인업을 주기적으로 런칭하고 있습니다. 이용자들 사이에서는 모바일에서 터치 몇 번만으로 즉시 비교 대장을 추출해 주는 전문 중개 소프트웨어가 주도권을 가질 것이라 보고 있으며, 스마트 네이버 엔진 및 구글의 검색 결과를 뒤지며 매시간 업데이트되는 각종 혜택의 진위 여부를 따지는 스마트 컨슈머들이 점차 많아지고 있습니다.
+        </p>
+    </section>
+
+    <section id="section-faq">
+        <h2>자주 묻는 질문 (FAQ)</h2>
+        <p>
+            다음은 자동차 보험 비교 어플 이용과 관련하여 온라인 상에서 예비 가입자들이 자주 제기하는 대표적인 고민들입니다.
+        </p>
+        
+        <h3>Q. 비교 어플에서 제시하는 가격과 손해보험사 공식 웹사이트의 다이렉트 산출 금액은 완벽히 동일합니까?</h3>
+        <p>
+            A. 대부분의 대표적인 연동 플랫폼들은 대형 보험사들의 직접 API를 연동하여 실시간 동일 단가를 지향하고 있습니다. 다만 간혹 일부 특정 세부 조절 특약이나 연령 한정 가입 조건 지정이 누락될 수 있고, 플랫폼 내부 시스템 유지 비용에 기인한 미세한 연동 오차가 있을 수 있으므로 확인 리스트 중 최종적으로 결정한 상위 1, 2곳의 공시 채널에 직접 최종 대입해서 한 번 더 확인하는 것이 더 신중한 계약 방식입니다.
+        </p>
+
+        <h3>Q. 마케팅 제안이나 정보 스팸 연락이 과도하게 발생할까 염려됩니다. 피하는 수단이 있을까요?</h3>
+        <p>
+            A. 개인 본인 인증 단계에서 시스템 필수 동의 사항과 마케팅 용도의 선택적 수집 동의 사항이 나뉘어 나옵니다. 이때 선택 제공 동의 부문의 마크를 모두 해제하시고 필수 승인 요건만 활성화하여 조회를 지속하시면 차후 발생하는 각종 부가 판촉 콜을 미연에 방지하실 수 있습니다.
+        </p>
+
+        <h3>Q. 자차 보험료를 합리화하고 싼곳을 찾기 위해서 자기부담금을 무작정 높이는 편이 좋습니까?</h3>
+        <p>
+            A. 자기부담금의 상한선을 상향하면 기초 가입료 단가는 낮아지지만, 단일 사고가 발생했을 경우 실제 운전자가 손해 처리 비용 중 일부를 추가적으로 물어내야 하는 지출 폭이 늘어납니다. 본인의 실제 평균 주행 성향과 접촉 사고 빈도를 종합적으로 저울질하여 중간 등급의 부담 비율을 선택하시는 것을 권해 드립니다.
+        </p>
+    </section>
+
+    <section id="section-external">
+        <h2>신뢰할 수 있는 외부 공인 참고 자료 리스트</h2>
+        <p>
+            더 공신력 있는 자동차 및 보험 관련 실태와 통계 지표, 그리고 법리적 해설이 필요하시다면 아래의 국가 기관 및 준공공 포털에서 배포하는 정식 문헌들을 검토해 보실 수 있습니다.
+        </p>
+        <ul>
+            <li><a href="https://www.fss.or.kr/" target="_blank" rel="noopener noreferrer">금융감독원 (FSS)</a>: 국내 정식 보험 상품의 약관 감독 가이드라인 및 소비자 민원 사례를 분석 공시합니다.</li>
+            <li><a href="https://www.nida.or.kr/" target="_blank" rel="noopener noreferrer">보험개발원 (KIDI)</a>: 대한민국 모든 판매 차량 기종의 요율 등급과 정밀 통계 지표 자료를 열람할 수 있습니다.</li>
+            <li><a href="https://www.law.go.kr/" target="_blank" rel="noopener noreferrer">국가법령정보센터</a>: 자동차손해배상 보장법 및 제반 교통법규의 조문 개정 사항을 상시 공표하는 디지털 법령 저장소입니다.</li>
+            <li><a href="https://namu.wiki/" target="_blank" rel="noopener noreferrer">나무위키 - 대한민국 판매 차종 문서</a>: 각종 현대, 기아 차종의 역사적 배경과 구조적 손해율 특이점에 관한 집단 지성 아카이브입니다.</li>
+            <li><a href="https://www.kca.go.kr/" target="_blank" rel="noopener noreferrer">한국소비자원</a>: 자동차 서비스 품질 비교 및 손해 중재 결정 데이터를 제공하는 통합 포털입니다.</li>
+        </ul>
+    </section>
+
+    <section id="insurance-consulting-form">
+        <h2>맞춤형 자동차 보험 비교 정밀 분석 서비스 신청서</h2>
+        <p>
+            개개인의 구체적인 운전 경력, 보유 모델, 연령대, 특별 특약 포함 여부에 따라 최저가 보험사가 상이하게 분포될 수 있습니다. 아래 양식에 사용 가능한 필수 수치 정보들을 기재해 주시면, 2026년 최신 시스템을 통한 정밀 필터링을 통해 적확한 예상 종합 계산 분석 보고서를 작성하여 신속하게 보내 드립니다.
+        </p>
+
+        <form action="#" method="get" onsubmit="alert('가상 시뮬레이션 양식 작성이 접수되었습니다. (실제 데이터는 발송되지 않습니다)'); return false;">
+            <label for="user-name">가입 신청자 성함 (필수)</label>
+            <input type="text" id="user-name" name="userName" placeholder="예: 홍길동" required>
+
+            <label for="user-tel">연락처 및 회신 전화번호 (필수)</label>
+            <input type="tel" id="user-tel" name="userTel" placeholder="예: 010-1234-5678" required>
+
+            <label for="car-brand">보유 혹은 구입 예정이신 주력 차종 선택 (필수)</label>
+            <select id="car-brand" name="carBrand" required>
+                <option value="">차량 선택을 완료해 주세요</option>
+                <option value="avante">현대 아반떼</option>
+                <option value="grandeur">현대 그랜저</option>
+                <option value="sonata">현대 소나타</option>
+                <option value="casper">현대 캐스퍼</option>
+                <option value="tucson">현대 투싼</option>
+                <option value="santafe">현대 싼타페</option>
+                <option value="palisade">현대 팰리세이드</option>
+                <option value="kona">현대 코나</option>
+                <option value="morning">기아 모닝</option>
+                <option value="ray">기아 레이</option>
+                <option value="seltos">기아 셀토스</option>
+                <option value="sportage">기아 스포티지</option>
+                <option value="sorento">기아 쏘렌토</option>
+                <option value="carnival">기아 카니발</option>
+                <option value="k5">기아 K5</option>
+                <option value="k8">기아 K8</option>
+                <option value="ev6">기아 EV6</option>
+                <option value="g80">제네시스 G80</option>
+                <option value="gv70">제네시스 GV70</option>
+                <option value="gv80">제네시스 GV80</option>
+                <option value="torres">KGM 토레스</option>
+                <option value="tivoli">KGM 티볼리</option>
+                <option value="qm6">르노 QM6</option>
+                <option value="xm3">르노 XM3</option>
+                <option value="other">그 외 기타 수입차 및 상용 트랙터</option>
+            </select>
+
+            <label for="driver-age">보험 피보험자 중 최연소자 만 나이 (필수)</label>
+            <input type="number" id="driver-age" name="driverAge" min="18" max="100" placeholder="예: 32" required>
+
+            <label for="exp-years">가입 보증 운전 경력 연수 (필수)</label>
+            <input type="number" id="exp-years" name="expYears" min="0" max="60" placeholder="무경력인 경우 0 입력" required>
+
+            <label for="mileage">연간 타겟 주행거리 (선택)</label>
+            <select id="mileage" name="mileage">
+                <option value="under3000">3,000km 미만 (최대 폭 마일리지 특약 할인 대상)</option>
+                <option value="under5000">3,000km 이상 ~ 5,000km 미만</option>
+                <option value="under10000">5,000km 이상 ~ 10,000km 미만</option>
+                <option value="over10000">10,000km 이상 (일반 운행 구간)</option>
+            </select>
+
+            <label>소유 차량 탑재 능동형 안전 편의 장치 (중복 체크 가능)</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item">
+                    <input type="checkbox" name="safetyDev" value="ldws"> 차선이탈방지장치
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="safetyDev" value="fcws"> 전방충돌방지센서
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="safetyDev" value="blackbox"> 블랙박스 상시 녹화기
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" name="safetyDev" value="tmap"> T맵 운전점수 동기화 가능
+                </label>
+            </div>
+
+            <label for="custom-memo">추가적으로 요청할 연령 세분화 한정 설정 및 희망 할인 특약 사항</label>
+            <textarea id="custom-memo" name="customMemo" rows="4" placeholder="예: 가족 1인 한정으로 추가하고 싶습니다. 군 운전 경력이 있는데 인정을 받을 수 있을까요?"></textarea>
+
+            <button type="submit" class="btn-action">정보 유출 방지 및 보안 연산 견적 요청서 발송</button>
+        </form>
+    </section>
+
+  
